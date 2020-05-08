@@ -1,1 +1,54 @@
-Hello World
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BlogPost template by Adobe Dreamweaver CC</title>
+<link href="../../../OneDrive/!College/Classes - 2020 Spring/STAT 153/Project_export/BlogPostAssets/styles/blogPostStyle.css" rel="stylesheet" type="text/css">
+<!--The following script tag downloads a font from the Adobe Edge Web Fonts server for use within the web page. We recommend that you do not modify it.--><script>var __adobewebfontsappname__="dreamweaver"</script><script src="http://use.edgefonts.net/montserrat:n4:default;source-sans-pro:n2:default.js" type="text/javascript"></script>
+</head>
+
+<body>
+<div id="mainwrapper">
+  <header> 
+    <!--**************************************************************************
+    Header starts here. It contains Logo and 3 navigation links. 
+    ****************************************************************************--></header>
+  <div id="content">
+    <div class="notOnDesktop"> 
+      <!-- This search box is displayed only in mobile and tablet laouts and not in desktop layouts -->
+      <input type="text" placeholder="Search">
+    </div>
+    <section id="mainContent"> 
+      <!--************************************************************************
+    Main Blog content starts here
+    ****************************************************************************-->
+      <h1>
+        <!-- Blog title -->
+      Forecasting COVID</h1>
+      <h3><!-- Tagline -->SOME AWESOME HERO TAGLINE</h3>
+      <div id="bannerImage"><img src="../../../OneDrive/!College/Classes - 2020 Spring/STAT 153/Project_export/images/download-future.jpg" alt=""/></div>
+      <p>Today we will be looking at the decade number of COVID-19 cases in Timeseria to see if we can forecast how this virus will continue to spread in the country. The most natural starting point to analyze a univariate (single variable - in this case, number of infections) time series is to plot it.</p>
+      <img src="../../../OneDrive/!College/Classes - 2020 Spring/STAT 153/Project_export/images/raw.png" width="600" height="372" alt=""/>
+      <p>&nbsp; </p>
+      <p> Wow! the number of detected infections seems to grow so quickly. In fact, this explosive growth could be an indicator of an exponential function. If you don’t remember, an exponential function is defined by:</p>
+      <p> x(t) = a * x(t-1) or x(t) = a^t or x(t) = x(t-1) + c*x(t-1) </p>
+      <p>which models the idea that the number of new people infected grows proportionally to the number of people that are already infected. We can transform this series into something easier to work with by taking its log: </p>
+      <p><img src="../../../OneDrive/!College/Classes - 2020 Spring/STAT 153/Project_export/images/log.png" width="600" height="372" alt=""/>&nbsp; </p>
+      <p>There we go! Now we have something that looks linear, which makes our job a lot more straightforward. If we try to model the last 30ish days of data with a linear trend, we get a model that looks quite reasonable: </p>
+      <p><img src="../../../OneDrive/!College/Classes - 2020 Spring/STAT 153/Project_export/images/linear_forecast.png" width="600" height="372" alt=""/><img src="../../../OneDrive/!College/Classes - 2020 Spring/STAT 153/Project_export/images/linear_residuals.png" width="600" height="372" alt=""/>&nbsp; </p>
+      <p>This should give us a rough idea of what to expect from COVID in the future, but there’s actually one more step we can take to get more accurate estimates. You might notice that the residuals (how far off our model is from the true data) still show some sort of pattern. We can try to model this leftover pattern as an autoregressive process, which basically means that each successive entry in our series is proportional to the one right before it, with some noise. We can try to predict these residuals and add them back into our linear model. We can exponentiate our predications (remember that we took the log of our data at the start) and compare to our original estimate. Our new model shows a similar growth pattern as the original, but the dampening effect of the residuals slows that growth a bit. </p>
+      <p><img src="../../../OneDrive/!College/Classes - 2020 Spring/STAT 153/Project_export/images/forecasts.png" width="600" height="372" alt=""/>&nbsp; </p>
+      <p>And remember, this is only the story if we don’t change our response to the virus. Better testing and social distancing can very well change the story! Stay safe! </p>
+<p>&nbsp; </p>
+      <aside id="authorInfo"> 
+        <!-- The author information is contained here -->
+        <h2>Anav Mittal</h2>
+        <p>Anav is a student in UC Berkeley's Stat 153, which is why he is writing this blog post.&nbsp;&nbsp;</p>
+      </aside>
+    </section>
+</div>
+  <div id="footerbar"><!-- Small footerbar at the bottom --></div>
+</div>
+</body>
+</html>
